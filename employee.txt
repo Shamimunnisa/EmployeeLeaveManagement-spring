@@ -1,0 +1,24 @@
+drop table employee_details;
+
+create table employee_details(empid number primary key,ename varchar2(20),
+address varchar2(20),leaves_avail number);
+
+insert into employee_details values(898913,'Tina','Pune',10);
+insert into employee_details values(121212,'Sachin','Mumbai',10);
+insert into employee_details values(755532,'Aasha','Pune',6);
+insert into employee_details values(876421,'Yogesh','Bangalore',13);
+
+drop  table employee_leave_details;
+
+create table employee_leave_details(leave_id number primary key,empid number references employee_details(empid),
+start_date date,end_date date,description varchar2(50), leaves_applied number);
+
+insert into  employee_leave_details values(1,121212,'8-Sep-2014','11-sep-2014','sick',4);
+insert into  employee_leave_details values(2,121212,'14-Sep-2014','15-sep-2014','Family Function',2);
+insert into  employee_leave_details values(3,755532,'3-Dec-2016','14-Dec-2016','Seek Leave',12);
+insert into  employee_leave_details values(4,876421,'6-Sep-2016','6-sep-2016','Function at Home',1);
+insert into  employee_leave_details values(5,876421,'21-Oct-2016','23-Oct-2016','LOP',3);
+insert into  employee_leave_details values(6,755532,'4-Apr-2016','5-Apr-2016','Personal',2);
+insert into  employee_leave_details values(7,121212,'9-Oct-2014','9-Oct-2014','Festival',1);
+
+commit;
